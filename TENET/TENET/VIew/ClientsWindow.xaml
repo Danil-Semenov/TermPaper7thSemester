@@ -1,0 +1,48 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:ClientsViewModel"
+        x:Class="TENET.ClientsWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Клиенты" Height="470" Width="820" WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/TENET;component/images/fon3.png" x:Name="im"/>
+    </Window.Background>
+
+
+    <Grid Margin="33,21,32,30">
+
+        <Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="50" Margin="0,298,0,0">Назад</Button>
+        <Button Click="button2_Click" x:Name="ButtonUpdate" Width="150" Height="50" Margin="0,180,0,0">Обновить</Button>
+        <DataGrid Height="192" Margin="10,40,10,0" VerticalAlignment="Top" AutoGenerateColumns="True" x:Name="ClientsGrid" IsReadOnly="True"/>
+
+        <TextBlock  Margin="0,250,580,113" FontSize="15"> Найти клиента по ФИО</TextBlock>
+        <TextBox x:Name="TextBox" Width="140" Height="25" Margin="0,200,610,0"/>
+        <Button x:Name="Find"  Margin="160,200,550,0" Padding="0" Click="Find_Click">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <materialDesign:PackIcon Kind="Magnify" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <TextBlock  Margin="0,330,627,0" FontSize="15"> Удалить клиента</TextBlock>
+        <TextBox x:Name="TextBox1" Width="140" Height="25" Margin="0,350,610,0"/>
+        <Button x:Name="Delete"  Margin="160,330,550,0" Padding="0" Click="Delete_Click">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <materialDesign:PackIcon Kind="DeleteVariant" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        
+        
+    </Grid>
+
+</reactiveUi:ReactiveWindow>

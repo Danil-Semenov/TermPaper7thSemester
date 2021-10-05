@@ -1,0 +1,34 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:EditProjectsViewModel"
+        x:Class="TENET.EditProjectsWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="ClientsWindow" Height="550" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="33,21,32,30">
+        <TextBlock Margin="0,320,544,24">Введите или выберите в таблице номер проекта</TextBlock>
+        <Button Click="button_Click2" x:Name="Button1" Height="45" Margin="330,190,295,0">Выбрать</Button>
+        <TextBox  Margin="214,253,431,65" Height="30" x:Name="project" Text="{Binding SelectedItem.Номер-проекта, ElementName=AllProjectsGrid}" />
+        <TextBlock Margin="26,356,590,71">Часы работы</TextBlock>
+        <TextBox  Margin="214,299,431,19" Height="30" x:Name="time" Text="{Binding SelectedItem.Часы-работы, ElementName=EditProjectsGrid}" />
+        <Button Click="button_Click3" x:Name="Button2" Height="45" Margin="330,290,295,0">Сохранить</Button>
+        
+        <Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="50" Margin="470,300,0,0">Назад</Button>
+        <DataGrid HorizontalAlignment="Left" Height="233" Margin="26,21,0,0" VerticalAlignment="Top" Width="297" AutoGenerateColumns="True" x:Name="AllProjectsGrid">
+
+
+        </DataGrid>
+
+        <DataGrid HorizontalAlignment="Left" Height="233" Margin="378,21,0,0" VerticalAlignment="Top" Width="297" AutoGenerateColumns="True" x:Name="EditProjectsGrid">
+
+
+        </DataGrid>
+
+    </Grid>
+
+</reactiveUi:ReactiveWindow>

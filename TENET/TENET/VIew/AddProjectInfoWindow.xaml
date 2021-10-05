@@ -1,0 +1,42 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:AddProjectInfoViewModel"
+        x:Class="TENET.AddProjectInfoWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Редактирование проекта" Height="650" Width="800" WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/TENET;component/images/fon3.png" x:Name="im"/>
+    </Window.Background>
+
+    <Grid Margin="33,21,32,30">
+
+        <TextBlock Margin="321,53,206,338" Width="200">Новые проекты</TextBlock>
+        <DataGrid Margin="0,80,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="717" AutoGenerateColumns="True" x:Name="ProectGrid" ColumnWidth="*" IsReadOnly="True" Height="150">
+        </DataGrid>
+        <TextBlock Margin="280,300,350,190">Команда</TextBlock>
+        <TextBox x:Name="TeamTextBox" Height="30" Width="150" Margin="240,130,330,0"></TextBox>
+        <TextBlock Margin="40,300,550,190">Часы работы</TextBlock>
+        <TextBox x:Name="ClockTextBox" Height="30" Width="150" Margin="40,130,530,0"></TextBox>
+        <TextBlock Margin="420,300,150,190">Предмет договора</TextBlock>
+        <TextBox x:Name="DogovorTextBox" Height="30" Width="150" Margin="400,130,170,0"></TextBox>
+        <TextBlock Margin="580,300,0,190">Техническое задание</TextBlock>
+        <TextBox x:Name="TaskTextBox" Height="30" Width="150" Margin="570,130,0,0" ></TextBox>
+        <Button Click="Save_Click"  Width="150" Height="50" Margin="500,398,0,0" Padding="10" FontSize="20">Сохранить</Button>
+
+
+        <Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="50" Margin="0,398,0,0" Padding="10" FontSize="20">Назад</Button>
+        <Button Click="button_Click2" x:Name="ButtonWorks" Width="150" Height="50" Margin="500,270,0,0" Padding="10" FontSize="20">Виды работ</Button>
+
+        <TextBlock Margin="20,380,550,140">Выберите программиста</TextBlock>
+        <DataGrid Margin="20,370,557,0" AutoGenerateColumns="True" x:Name="Staff" Width="150" Height="130" ColumnWidth="*" IsReadOnly="True"/>
+
+    </Grid>
+
+</reactiveUi:ReactiveWindow>

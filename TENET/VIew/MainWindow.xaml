@@ -1,0 +1,25 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:ViewModel"
+        x:Class="TENET.MainWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid RenderTransformOrigin="0.446,0.578">
+        <TextBlock x:Name="TextBlock" Margin="10,71,10,311" TextAlignment="Center"/>
+        <materialDesign:PackIcon Kind="Account"  Height="20" Width="20" HorizontalAlignment="Right" Margin="0,148,505,0" />
+        <materialDesign:PackIcon Kind="KeyOutline"  Height="20" Width="20" RenderTransformOrigin="0.7,-0.8" HorizontalAlignment="Right" Margin="0,181,505,0" />
+        <TextBox x:Name="Login" Margin="322,148,232,251" Height="20" />
+        <TextBox x:Name="Password" Margin="322,181,232,218" Height="20"/>
+        <Button x:Name="Button" Click="button_Click"
+             
+             ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+             materialDesign:RippleAssist.Feedback="#DD000000" Margin="336,230,344,169" Content="LOGIN"/>
+    </Grid>
+
+</reactiveUi:ReactiveWindow>

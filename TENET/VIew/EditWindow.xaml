@@ -1,0 +1,27 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:EditViewModel"
+        x:Class="TENET.EditWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="EditWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="33,21,32,30">
+        <TextBlock Margin="20">ФИО</TextBlock>
+        <TextBox  Margin="20,00,20,300" Width="150" Height="30" x:Name="EditFIO"></TextBox>
+        <!--<TextBlock Margin="20,79,20,20">Оценка эксперта</TextBlock>
+        <TextBox Margin="20,00,20,190" Width="150" Height="30" x:Name="EditResult"/> -->
+        <TextBlock Margin="20,119,0,181">Логин</TextBlock>
+        <TextBox Margin="288,132,289,206" Width="150" Height="30" x:Name="EditLogin"/>
+        <TextBlock Margin="20,200,00,00">Пароль</TextBlock>
+        <TextBox Margin="288,187,289,151" Width="150" Height="30" x:Name="EditPassword" ></TextBox>
+        <Button Click="button_Click_Save" x:Name="ButtonSave" Width="150" Height="50" Margin="0,200,0,0">Сохранить</Button>
+        <Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="50" Margin="0,298,0,0">Назад</Button>
+
+    </Grid>
+
+</reactiveUi:ReactiveWindow>

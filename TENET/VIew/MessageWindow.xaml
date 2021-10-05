@@ -1,0 +1,32 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:MessageViewModel"
+        x:Class="TENET.MessageWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="MessageWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="50" Margin="47,344,595,25">Назад</Button>
+        <DataGrid HorizontalAlignment="Left" Height="282" Margin="44,31,0,0" VerticalAlignment="Top" Width="164" AutoGenerateColumns="True" x:Name="ClientsGrid">
+        </DataGrid>
+        <TextBox Margin="238,294,124,24" x:Name="Message"></TextBox>
+        <Button x:Name="Send"  Click="Send_Click"  Margin="694,312,23,47">
+            <Button.ContentTemplate >
+                <DataTemplate >
+                    <materialDesign:PackIcon Kind="Send" />
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+        <Label Content="История полученных сообщений" HorizontalAlignment="Left" Margin="263,18,0,0" VerticalAlignment="Top"/>
+        <Label Content="История отправленных сообщений" HorizontalAlignment="Left" Margin="534,18,0,0" VerticalAlignment="Top"/>
+        <Label Content="Список сотрудников" HorizontalAlignment="Left" Margin="64,1,0,0" VerticalAlignment="Top"/>
+        <DataGrid HorizontalAlignment="Left" Height="213" Margin="275,58,0,0" VerticalAlignment="Top" Width="164" AutoGenerateColumns="True" x:Name="polyh"/>
+        <DataGrid HorizontalAlignment="Left" Height="214" Margin="550,56,0,0" VerticalAlignment="Top" Width="164" AutoGenerateColumns="True" x:Name="otprav"/>
+    </Grid>
+
+</reactiveUi:ReactiveWindow>

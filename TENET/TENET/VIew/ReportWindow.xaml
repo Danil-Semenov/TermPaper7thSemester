@@ -1,0 +1,35 @@
+﻿<reactiveUi:ReactiveWindow
+        x:TypeArguments="local:ReportViewModel"
+        x:Class="TENET.ReportWindow"
+        xmlns:reactiveUi="http://reactiveui.net"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TENET" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Отчеты" Height="700" Width="950" WindowStartupLocation="CenterScreen">
+
+    <Window.Background>
+        <ImageBrush ImageSource="/TENET;component/images/fon3.png" x:Name="im"/>
+    </Window.Background>
+
+    <Grid Margin="33,21,32,30">
+
+        <TextBlock Margin="30,400,490,0">Введите или выберите в таблице номер проекта</TextBlock>
+        <TextBox  Margin="60,250,590,0" Height="30" x:Name="project" Text="{Binding SelectedItem.Номер-проекта, ElementName=Projects}" />
+        <Button Click="button_Click2" x:Name="Button1" Height="45" Margin="300,270,265,0">Получение прибыли с проекта</Button>
+        <Button Click="button_Click3" x:Name="Button2" Height="45" Margin="300,400,265,0">Количество пользователей в системе</Button>
+        <Button Click="button_Click4" x:Name="Button3" Height="45" Margin="300,530,390,0">Отчет по проекту</Button>
+        <Button Click="button_Click5" x:Name="Button4" Height="45" Margin="60,400,590,0">Отчет по клиентам</Button>
+        <Button Click="button_Click6" x:Name="Button5" Height="45" Margin="60,530,590,0">Отчет по сотрудникам</Button>
+        <Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="50" Margin="650,450,0,0">Назад</Button>
+
+        <DataGrid Margin="0,80,0,250" AutoGenerateColumns="True" x:Name="Projects" IsReadOnly="True"/>
+
+
+
+    </Grid>
+
+</reactiveUi:ReactiveWindow>
