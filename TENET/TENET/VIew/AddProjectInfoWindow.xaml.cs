@@ -29,8 +29,7 @@ namespace TENET
             var proektTable = new DataTable();
             string sql = "Select Название as 'Проект',[Дата_начала] as 'Дата начала',[Дата_сдачи] as 'Дата сдачи',[Предмет_договора] as 'Предмет договора' from Проект where ([Дата_начала] > GETDATE()-7)";
             //string sql = "SELECT Distinct [Проект].[Название] as 'Проект' ,[Дата_начала],[Дата_сдачи],[Предмет_договора], Команда.Название FROM [dbo].[Проект], [dbo].[Техническое_задание],[dbo].[Команда],[dbo].[Вид_работы], [dbo].[Проект_работа] Where (Команда.fk_id_проект = Проект.id_проект) and ([Проект_работа].fk_id_проект = Проект.id_проект and [Проект_работа].id_работа = [Вид_работы].fk_id_работа) and ([Дата_начала] > GETDATE()-7) ";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
@@ -92,8 +91,7 @@ namespace TENET
         {
             var proektTable2 = new DataTable();
             string sql2 = "select ФИО from dbo.Сотрудник where FK_id_должности=3";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();

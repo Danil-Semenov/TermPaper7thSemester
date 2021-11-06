@@ -62,8 +62,7 @@ namespace TENET
             var PublicDataConnecton = new DataConnecton();
             var proektTable = new DataTable();
             string sql = $"select dbo.Вид_работы.Название from dbo.Вид_работы where fk_id_работа =(select id_работа from dbo.Проект_работа where fk_id_проект=(select id_проект from dbo.Проект where dbo.Проект.Название='{name}'))";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();

@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using ReactiveUI;
 using TENET;
+using TENET.Model;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -22,8 +23,7 @@ namespace TENET
 
             var proektTable = new DataTable();
             string sql = "SELECT [Название] as 'Проект', [Дата_Начала], [Дата_сдачи], [Предмет_договора] as 'Предмет договора' FROM dbo.Проект WHERE [Название] IS NOT NULL AND [Предмет_договора] IS NOT NULL AND [Дата_Начала] IS NOT NULL AND [Дата_сдачи] IS NOT NULL";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();

@@ -24,7 +24,6 @@ namespace TENET
     public partial class Window1 : ReactiveWindow<Window1ViewModel>
     {
         List<string> newContent = new List<string>();
-        const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
         StringBuilder message = new StringBuilder();
         public Window1()
         {
@@ -32,7 +31,7 @@ namespace TENET
 
             var proektTable = new DataTable();
             string sql = "SELECT Название AS [Вид Работы]  FROM dbo.[Вид_работы] ";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
@@ -55,7 +54,7 @@ namespace TENET
 
             for (var z = 0; z < newContent.Count; z++)
             {
-                var cn = new SqlConnection(connectionString);
+                var cn = new SqlConnection(Connection.String);
                 cn.Open();
                 var cmd = new SqlCommand();
                 cmd.Connection = cn;

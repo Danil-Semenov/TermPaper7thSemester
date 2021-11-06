@@ -108,8 +108,7 @@ namespace TENET
 
                 var proektTable = new System.Data.DataTable();
                 string sql = "select dbo.Должности.название as 'Должность', COUNT(*) as 'Количество сотрудников' from dbo.Сотрудник,dbo.Должности where (FK_id_должности=id_должности) GROUP BY dbo.Должности.название";
-                const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-                var cn = new SqlConnection(connectionString);
+                var cn = new SqlConnection(Connection.String);
                 SqlCommand command = new SqlCommand(sql, cn);
                 var adapter = new SqlDataAdapter(command);
                 cn.Open();
@@ -221,8 +220,7 @@ namespace TENET
                 
                 var proektTable = new System.Data.DataTable();
                 string sql = "Select ФИО,dbo.Компания.Название as 'Компания',логин,пароль from dbo.Клиент,dbo.Компания where (id_компании=fk_id_компания)";
-                const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-                var cn = new SqlConnection(connectionString);
+                var cn = new SqlConnection(Connection.String);
                 SqlCommand command = new SqlCommand(sql, cn);
                 var adapter = new SqlDataAdapter(command);
                 cn.Open();
@@ -264,8 +262,7 @@ namespace TENET
 
                 var proektTable = new System.Data.DataTable();
                 string sql = "select ФИО,[Дата начала работы] as 'Дата начала работы',dbo.Должности.название as 'Должность',паспорт from dbo.Сотрудник, dbo.Должности where (id_должности=FK_id_должности)";
-                const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-                var cn = new SqlConnection(connectionString);
+                var cn = new SqlConnection(Connection.String);
                 SqlCommand command = new SqlCommand(sql, cn);
                 var adapter = new SqlDataAdapter(command);
                 cn.Open();

@@ -2,6 +2,7 @@
 using ReactiveUI;
 using TENET;
 using System.Data;
+using TENET.Model;
 using System.Data.SqlClient;
 
 namespace TENET
@@ -34,9 +35,8 @@ namespace TENET
         {
             var proektTable = new DataTable();
             var text = TextBox.Text;
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $"SELECT ФИО, dbo.Компания.Название as 'Компания', логин, пароль, dbo.Проект.Название as 'Заказанный проект', dbo.Команда.Название as 'Команда проекта' FROM dbo.Клиент, dbo.Проект, dbo.Команда, dbo.Компания where (dbo.Проект.id_проект = dbo.Клиент.fk_id_проект) and (dbo.Команда.fk_id_проект = dbo.Проект.id_проект) and (dbo.Компания.id_компании = dbo.Клиент.fk_id_компания) and (dbo.Клиент.ФИО LIKE '%{text}%')";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();
@@ -64,8 +64,7 @@ namespace TENET
         public void delete()
         {
             var text1 = TextBox1.Text;
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -86,8 +85,7 @@ namespace TENET
         {
             var proektTable = new DataTable();
             string sql = "SELECT ФИО, dbo.Компания.Название as 'Компания', логин, пароль, dbo.Проект.Название as 'Заказанный проект', dbo.Команда.Название as 'Команда проекта' FROM dbo.Клиент, dbo.Проект, dbo.Команда, dbo.Компания where (dbo.Проект.id_проект = dbo.Клиент.fk_id_проект) and (dbo.Команда.fk_id_проект = dbo.Проект.id_проект) and (dbo.Компания.id_компании = dbo.Клиент.fk_id_компания)";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();

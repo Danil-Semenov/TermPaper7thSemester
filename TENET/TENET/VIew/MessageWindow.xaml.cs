@@ -31,8 +31,7 @@ namespace TENET
 
             var proektTable = new DataTable();
             string sql = "SELECT ФИО  FROM dbo.Сотрудник ";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
@@ -55,8 +54,7 @@ namespace TENET
 
         private void Delete(object sender, RoutedEventArgs e)
         {
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -80,9 +78,8 @@ namespace TENET
         {
             var proektTable2 = new DataTable();
             var text = TextBox.Text;
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $"Select m.Дата_отправки as 'Дата отправки', m.текст, p.ФИО AS [ФИО отправителя], q.ФИО AS [ФИО получателя] From[Сообщение] m Inner join Сотрудник p ON m.fk_id_сотрудника_отправителя = p.id_сотрудника Inner join Сотрудник q ON m.fk_id_сотрудника_получателя = q.id_сотрудника Where((m.fk_id_сотрудника_отправителя ={id2}) or(m.fk_id_сотрудника_получателя = {id2}))and (m.текст LIKE '%{text}%')";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();
@@ -100,8 +97,7 @@ namespace TENET
                 message = Message.Text;
                 var date = new System.DateTime();
                 date = System.DateTime.Now;
-                const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-                var connection = new SqlConnection(connectionString);
+                var connection = new SqlConnection(Connection.String);
                 connection.Open();
                 var command = new SqlCommand();
                 command.Connection = connection;
@@ -117,9 +113,8 @@ namespace TENET
         {
             var proektTable2 = new DataTable();
             poluhatel = ClientsGrid.SelectedIndex == 0 ? ClientsGrid.SelectedIndex + 1 : ClientsGrid.SelectedIndex + 2;
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $"Select m.Дата_отправки as 'Дата отправки', m.текст, p.ФИО AS [ФИО отправителя], q.ФИО AS [ФИО получателя] From[Сообщение] m Inner join Сотрудник p ON m.fk_id_сотрудника_отправителя = p.id_сотрудника Inner join Сотрудник q ON m.fk_id_сотрудника_получателя = q.id_сотрудника Where((m.fk_id_сотрудника_отправителя ={id2}) and(m.fk_id_сотрудника_получателя = {poluhatel}))or((m.fk_id_сотрудника_отправителя ={poluhatel}) and(m.fk_id_сотрудника_получателя = {id2}) )";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();
@@ -130,9 +125,8 @@ namespace TENET
         public void otpravit1()
         {
             var proektTable2 = new DataTable();
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $"Select m.Дата_отправки as 'Дата отправки', m.текст, p.ФИО AS [ФИО отправителя], q.ФИО AS [ФИО получателя] From[Сообщение] m Inner join Сотрудник p ON m.fk_id_сотрудника_отправителя = p.id_сотрудника      Inner join Сотрудник q ON m.fk_id_сотрудника_получателя = q.id_сотрудника     Where(m.fk_id_сотрудника_отправителя ={id2}) or(m.fk_id_сотрудника_получателя = {id2})";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();

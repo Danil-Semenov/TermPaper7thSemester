@@ -26,8 +26,7 @@ namespace TENET
 
             var proektTable = new DataTable();
             string sql = "SELECT [Название] as 'Проект' FROM [dbo].[Проект]";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
@@ -50,9 +49,8 @@ namespace TENET
         {
             var proektTable = new DataTable();
             var text = TextBox.Text;
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $"SELECT distinct [Проект].[Название] as 'Проект' ,[Дата_начала] as 'Дата начала',[Дата_сдачи] as 'Дата сдачи',[Предмет_договора] as 'Предмет договора', Команда.Название as 'Команда' , [Вид_работы].Название as 'Работа', dbo.Клиент.ФИО FROM[dbo].[Проект], [dbo].[Техническое_задание],[dbo].[Команда],[dbo].[Вид_работы], [dbo].[Проект_работа], dbo.Клиент Where(Команда.fk_id_проект = Проект.id_проект) and([Проект_работа].fk_id_проект = Проект.id_проект and[Проект_работа].id_работа = [Вид_работы].fk_id_работа) and dbo.Проект.Название LIKE '%{text}%' and (id_проект = dbo.Клиент.fk_id_проект)";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();
@@ -68,8 +66,7 @@ namespace TENET
             var PublicDataConnecton = new DataConnecton();
             var proektTable = new DataTable();
             string sql = $"SELECT distinct [Проект].[Название] as 'Проект' ,[Дата_начала] as 'Дата начала',[Дата_сдачи] as 'Дата сдачи',[Предмет_договора] as 'Предмет договора', Команда.Название as 'Команда' , [Вид_работы].Название as 'Работа', dbo.Клиент.ФИО FROM[dbo].[Проект], [dbo].[Техническое_задание],[dbo].[Команда],[dbo].[Вид_работы], [dbo].[Проект_работа], dbo.Клиент Where(Команда.fk_id_проект = Проект.id_проект) and([Проект_работа].fk_id_проект = Проект.id_проект and[Проект_работа].id_работа = [Вид_работы].fk_id_работа) and dbo.Проект.Название = '{name}' and (id_проект = dbo.Клиент.fk_id_проект)";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
@@ -97,9 +94,8 @@ namespace TENET
         public void FindClient (string name)
         {
             var proektTable = new DataTable();
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $"SELECT distinct [Проект].[Название] as 'Проект' ,[Дата_начала] as 'Дата начала',[Дата_сдачи] as 'Дата сдачи',[Предмет_договора] as 'Предмет договора', Команда.Название as 'Команда' , [Вид_работы].Название as 'Работа', dbo.Клиент.ФИО FROM[dbo].[Проект], [dbo].[Техническое_задание],[dbo].[Команда],[dbo].[Вид_работы], [dbo].[Проект_работа], dbo.Клиент Where(Команда.fk_id_проект = Проект.id_проект) and([Проект_работа].fk_id_проект = Проект.id_проект and[Проект_работа].id_работа = [Вид_работы].fk_id_работа) and dbo.Клиент.ФИО LIKE '%{name}%' and (id_проект = dbo.Клиент.fk_id_проект)";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();
@@ -121,9 +117,8 @@ namespace TENET
         {
             var proektTable = new DataTable();
 
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
             string sql2 = $" SELECT distinct [Проект].[Название] as 'Проект' ,[Дата_начала] as 'Дата начала',[Дата_сдачи] as 'Дата сдачи',[Предмет_договора] as 'Предмет договора', Команда.Название as 'Команда' , [Вид_работы].Название as 'Работа', dbo.Клиент.ФИО FROM[dbo].[Проект], [dbo].[Техническое_задание],[dbo].[Команда],[dbo].[Вид_работы], [dbo].[Проект_работа], dbo.Клиент Where(Команда.fk_id_проект = Проект.id_проект) and([Проект_работа].fk_id_проект = Проект.id_проект and[Проект_работа].id_работа = [Вид_работы].fk_id_работа) and (id_проект = dbo.Клиент.fk_id_проект) and (dbo.Проект.Дата_начала > '{date1}' and dbo.Проект.Дата_начала < '{date2}')";
-            var cn2 = new SqlConnection(connectionString);
+            var cn2 = new SqlConnection(Connection.String);
             SqlCommand command2 = new SqlCommand(sql2, cn2);
             var adapter2 = new SqlDataAdapter(command2);
             cn2.Open();

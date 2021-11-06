@@ -27,8 +27,7 @@ namespace TENET
 
             var proektTable = new DataTable();
             string sql = $"SELECT distinct dbo.Проект.[Название] as 'Проект' FROM [dbo].[Проект],dbo.Команда, dbo.Сотрудник where (fk_id_команды=id_команда) and (fk_id_проект=id_проект) and (fk_id_программист={GlobalData.id})";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
@@ -70,8 +69,7 @@ namespace TENET
             var proektTable = new DataTable();
             //string sql = "select dbo.Проект.Название as 'Проект', [Дата_Начала] as 'Дата Начала', [Дата_сдачи] as 'Дата сдачи', [Текст] as 'Техническое задание', Оценка_эксперта as 'Успеваемость' From dbo.Проект, dbo.Техническое_задание, dbo.Ход_работы WHERE (id_проект=" + idProject + ") AND (fk_id_исполнитель =(select fk_id_программист from dbo.Команда where fk_id_проект =" + idProject + ")) AND (id_ход_раб =(select fk_id_ход_раб from dbo.Команда where fk_id_программист=" + GlobalData.id + ")) and (fk_id_составитель =(select fk_id_менеджер from dbo.Команда where fk_id_проект =" + idProject + "))";
             string sql = $"select distinct dbo.Проект.Название as 'Проект', [Дата_Начала] as 'Дата Начала', [Дата_сдачи] as 'Дата сдачи', [Текст] as 'Техническое задание', Оценка_эксперта as 'Готовность' From dbo.Проект, dbo.Техническое_задание, dbo.Ход_работы, dbo.Команда where (dbo.Проект.Название = '{name}') and (dbo.Техническое_задание.id_тех_зад = (select fk_id_тех_зад from dbo.Сотрудник where id_сотрудника='{id}')) and (dbo.Ход_работы.id_ход_раб = (select fk_id_ход_раб from dbo.Команда where dbo.Команда.fk_id_проект = (select id_проект from dbo.Проект where dbo.Проект.Название='{name}')))";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();

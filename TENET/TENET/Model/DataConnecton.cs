@@ -26,11 +26,7 @@ namespace TENET.Model
 
     public class DataConnecton
     {
-        // Кто работает та строка и основная а другая просто закомичена
-        // Строка подключения Данила
-        //const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=LAPTOP-Q4M9643N";
-        // Строка подключения Влада
-        const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
+       
 
         public string SqlQueryResponseString(string select, SqlCommand newCommand) 
         {
@@ -106,7 +102,7 @@ namespace TENET.Model
         public int GetIdWork(int id)
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -123,7 +119,7 @@ namespace TENET.Model
         public void UpdateIdTeam(int id,int id2, string name, int id3)
         {
 
-            var connection = new SqlConnection(connectionString);
+            var connection = new SqlConnection(Connection.String);
             connection.Open();
             var command = new SqlCommand();
             command.Connection = connection;
@@ -143,7 +139,7 @@ namespace TENET.Model
         public int GetIdTeam()
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -159,7 +155,7 @@ namespace TENET.Model
         public int GetIdTechEx()
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -176,7 +172,7 @@ namespace TENET.Model
         public int GetIdProject(string name)
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -192,7 +188,7 @@ namespace TENET.Model
         public int GetIdWorkProgress()
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -208,7 +204,7 @@ namespace TENET.Model
 
         public string GetIdProg(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = $"select id_сотрудника from dbo.Сотрудник where ФИО='{name}' ";
             var cmd = new SqlCommand(select, cn);
@@ -220,7 +216,7 @@ namespace TENET.Model
         {
             var date = new DateTime();
             date = DateTime.Now;
-            var connection = new SqlConnection(connectionString);
+            var connection = new SqlConnection(Connection.String);
             connection.Open();
             var command = new SqlCommand();
             command.Connection = connection;
@@ -233,7 +229,7 @@ namespace TENET.Model
         public void InsertTeam(string name,int id1, int id2,int id3,int id4)
         {
             
-            var connection = new SqlConnection(connectionString);
+            var connection = new SqlConnection(Connection.String);
             connection.Open();
             var command = new SqlCommand();
             command.Connection = connection;
@@ -249,7 +245,7 @@ namespace TENET.Model
         public void InsertInfo(string name, string hours, string dogovor, string text,int id1, int id2)
         {
             
-            var connection = new SqlConnection(connectionString);
+            var connection = new SqlConnection(Connection.String);
             connection.Open();
             var command = new SqlCommand();
             command.Connection = connection;
@@ -273,7 +269,7 @@ namespace TENET.Model
         ///
         public string GetTeamByName(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = $"Select Название from Команда where [fk_id_проект] = (Select id_проект from Проект where Название = '{name}')";
             var cmd = new SqlCommand(select, cn);
@@ -281,7 +277,7 @@ namespace TENET.Model
         }
         public string GetClockByName(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = $"Select [часы работы] from [Проект_работа] where [fk_id_проект] = (Select id_проект from Проект where Название = '{name}')";
             var cmd = new SqlCommand(select, cn);
@@ -289,7 +285,7 @@ namespace TENET.Model
         }
         public string GetDogovorByName(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = $"Select [Предмет_договора] from Проект where Название = '{name}';";
             var cmd = new SqlCommand(select, cn);
@@ -297,7 +293,7 @@ namespace TENET.Model
         }
         public string GetTaskByName(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = $"Select Текст from [Техническое_задание] where FK_id_составитель = (Select [fk_id_менеджер] from Команда where [fk_id_проект] = (Select id_проект from Проект where Название = '{name}'))";
             var cmd = new SqlCommand(select, cn);
@@ -310,7 +306,7 @@ namespace TENET.Model
         public void UpdateWork(string name1, string name2)
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -325,7 +321,7 @@ namespace TENET.Model
         public void UpdateTeam(string name1, string name2)
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -340,7 +336,7 @@ namespace TENET.Model
         public void UpdateProject(string name1, string name2)
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -354,7 +350,7 @@ namespace TENET.Model
         
         public string GetTeam(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -371,7 +367,7 @@ namespace TENET.Model
         public void UpdateProjects(int idProject, int time)
         {
             
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -384,7 +380,7 @@ namespace TENET.Model
 
         public string GetClientCompany(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -398,7 +394,7 @@ namespace TENET.Model
 
         public DateTime GetDataEndProject(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = "select Дата_сдачи from dbo.Проект where id_проект =" + id + "";
             var cmd = new SqlCommand(select, cn);
@@ -409,7 +405,7 @@ namespace TENET.Model
         public DateTime GetDataStartProject(int id)
         {
             
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = "select Дата_начала from dbo.Проект where id_проект =" + id + "";
             var cmd = new SqlCommand(select, cn);
@@ -420,7 +416,7 @@ namespace TENET.Model
 
         public string GetProjectPerformance(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -435,7 +431,7 @@ namespace TENET.Model
 
         public string GetClientName(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -450,7 +446,7 @@ namespace TENET.Model
 
         public int CountStaff()
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = "Select COUNT (*) From dbo.Сотрудник";
             var cmd = new SqlCommand(select, cn);
@@ -461,7 +457,7 @@ namespace TENET.Model
 
         public int CountClients()
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = "Select COUNT (*) From dbo.Клиент";
             var cmd = new SqlCommand(select, cn);
@@ -474,7 +470,7 @@ namespace TENET.Model
         {
             var date = new DateTime();
             date = DateTime.Now;
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -488,7 +484,7 @@ namespace TENET.Model
         public int GerProjectId(int id)
 
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -505,7 +501,7 @@ namespace TENET.Model
         {
             var date = new DateTime();
             date = DateTime.Now;
-            var connection = new SqlConnection(connectionString);
+            var connection = new SqlConnection(Connection.String);
             connection.Open();
             var command = new SqlCommand();
             command.Connection = connection;
@@ -517,7 +513,7 @@ namespace TENET.Model
         }
         public List<string> GetFioList()
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -530,7 +526,7 @@ namespace TENET.Model
 
         public int GetRecipientid(string username)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -551,7 +547,7 @@ namespace TENET.Model
         {
             var a = DateTime.Now;
             
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -565,7 +561,7 @@ namespace TENET.Model
 
         public int GetTeamName(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -581,7 +577,7 @@ namespace TENET.Model
 
         public string GetProjectName(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -597,7 +593,7 @@ namespace TENET.Model
         public int GetIdCompany()
         {
 
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -613,7 +609,7 @@ namespace TENET.Model
         public int GetIdProject()
 
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -628,7 +624,7 @@ namespace TENET.Model
         public int GetSalaryProgrammer(int id)
 
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -643,7 +639,7 @@ namespace TENET.Model
         public int GetSalaryManager(int id)
 
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -659,7 +655,7 @@ namespace TENET.Model
 
         public int GetSum(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var select = "Select SUM(Стоимость) From[Вид_работы] Where fk_id_работа = (Select id_работа from[Проект_работа] Where(fk_id_проект =" + id + "))";
             var cmd = new SqlCommand(select, cn);
@@ -669,7 +665,7 @@ namespace TENET.Model
 
         public void AddProject(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -681,7 +677,7 @@ namespace TENET.Model
 
         public void AddCompany(string name)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -695,7 +691,7 @@ namespace TENET.Model
 
         public void AddClient(string pasword, string login, string fio, int idProject, int idCompany)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -709,7 +705,7 @@ namespace TENET.Model
         
         public string GetUserName(string userLogin, string userPassword)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -732,7 +728,7 @@ namespace TENET.Model
         }
         public int GetUserId(string userLogin, string userPassword)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -756,7 +752,7 @@ namespace TENET.Model
 
         public int GetUserLevel(int id)
         {
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             cn.Open();
             var cmd = new SqlCommand();
             cmd.Connection = cn;
@@ -772,7 +768,7 @@ namespace TENET.Model
             
             if (id<9999)
             {
-                var connection = new SqlConnection(connectionString);
+                var connection = new SqlConnection(Connection.String);
                 connection.Open();
                 var command = new SqlCommand();
                 command.Connection = connection;
@@ -787,7 +783,7 @@ namespace TENET.Model
 
             } else
             {
-                var connection = new SqlConnection(connectionString);
+                var connection = new SqlConnection(Connection.String);
                 connection.Open();
                 var command = new SqlCommand();
                 command.Connection = connection;

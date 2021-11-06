@@ -4,6 +4,7 @@ using TENET;
 using Microsoft.Office.Interop.Excel;
 using System.Data;
 using System.Data.SqlClient;
+using TENET.Model;
 
 namespace TENET
 {
@@ -36,8 +37,7 @@ namespace TENET
 
             var proektTable = new System.Data.DataTable();
             string sql = "SELECT [id_проект] as 'Номер-проекта', [Название] as 'Проект', Дата_Начала as 'Дата Начала', [Дата_сдачи] as 'Дата Сдачи', [Предмет_договора] as 'Предмет договора' FROM dbo.Проект WHERE [Название] IS NOT NULL AND [Предмет_договора] IS NOT NULL AND [Дата_Начала] IS NOT NULL AND [Дата_сдачи] IS NOT NULL";
-            const string connectionString = "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=oil;Data Source=DESKTOP-0473UDT\\SQLEXPRESS";
-            var cn = new SqlConnection(connectionString);
+            var cn = new SqlConnection(Connection.String);
             SqlCommand command = new SqlCommand(sql, cn);
             var adapter = new SqlDataAdapter(command);
             cn.Open();
