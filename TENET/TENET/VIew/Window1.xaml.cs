@@ -65,5 +65,10 @@ namespace TENET
             }
             MessageBox.Show(message.ToString());
         }
+
+        private void Window_loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
