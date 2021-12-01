@@ -35,7 +35,7 @@ namespace TENET
                 GlobalData.level = 3;
             nameUser = GlobalData.name;
 
-            //GlobalData.level = 4;
+           // GlobalData.level = 4;
 
             if (GlobalData.level == 4)//руководитель 
             {

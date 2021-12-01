@@ -34,13 +34,13 @@ namespace TENET
 
         private void Window_loaded(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.Integration.WindowsFormsHost host = new System.Windows.Forms.Integration.WindowsFormsHost();
+            //System.Windows.Forms.Integration.WindowsFormsHost host = new System.Windows.Forms.Integration.WindowsFormsHost();
 
-            var map = new AxMapWinGIS.AxMap();
+            //var map = new AxMapWinGIS.AxMap();
 
-            host.Child = map;
+            //host.Child = map;
 
-            this.grid1.Children.Add(host);
+            //this.grid1.Children.Add(host);
         }
     }
 }
