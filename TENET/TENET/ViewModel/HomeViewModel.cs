@@ -24,16 +24,33 @@ namespace TENET
         public HomeViewModel()
         {
             var PublicDataConnecton = new DataConnecton();
-            GlobalData.name = PublicDataConnecton.GetUserName(GlobalData.login, GlobalData.password) ;
-            GlobalData.id = Convert.ToInt32(PublicDataConnecton.GetUserId(GlobalData.login, GlobalData.password)) ;
+            GlobalData.name = PublicDataConnecton.GetUserName(GlobalData.login, GlobalData.password);
+            GlobalData.id = Convert.ToInt32(PublicDataConnecton.GetUserId(GlobalData.login, GlobalData.password));
             GlobalData.level = PublicDataConnecton.GetUserLevel(GlobalData.id);
+
             //GlobalData.result = PublicDataConnecton.GetWorkResult(GlobalData.id);
             //GlobalData.ProjectId = PublicDataConnecton.GerProjectId(GlobalData.id);
 
             if (GlobalData.name == "не зарегестрированный пользователь")
                 GlobalData.level = 3;
             nameUser = GlobalData.name;
-            
+
+            //GlobalData.level = 4;
+
+            if (GlobalData.level == 4)//руководитель 
+            {
+                Vision = false;
+                Button1Vision = true;
+                Button5Vision = false;
+                Button1Text = "Открыть модуль ГИС";
+
+                Chat = ReactiveCommand.Create(() =>
+                {
+                    System.Diagnostics.Process.Start(@"C:\Program Files\Git\git-bash.exe");
+                });
+
+            }
+
             if (GlobalData.level==0) //клиент
             {
                 Vision = true;
@@ -166,6 +183,7 @@ namespace TENET
         public bool Button1Vision { get; set; }
         [Reactive]
         public bool Button5Vision { get; set; }
+
         [Reactive]
         public string nameUser { get; set; }
         [Reactive]

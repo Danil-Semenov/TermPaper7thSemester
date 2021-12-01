@@ -49,7 +49,8 @@ visibility => visibility == Visibility.Visible);
 
         private void Button1_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            if(GlobalData.level !=4)
+                this.Hide();
         }
 
         private void Button2_Click(object sender, RoutedEventArgs e)
