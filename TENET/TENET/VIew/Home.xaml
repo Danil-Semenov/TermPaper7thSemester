@@ -8,6 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TENET" 
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:presentation="clr-namespace:DocumentFormat.OpenXml.Presentation;assembly=DocumentFormat.OpenXml"
         mc:Ignorable="d"
         Title="Главное меню" Height="450" Width="800" WindowStartupLocation="CenterScreen">
 
@@ -16,14 +17,18 @@
     </Window.Background>
 
     <StackPanel>
-        <Menu VerticalAlignment="Top" Height="50" FontSize="12" Background="#FFC52D8E">
+        <Menu VerticalAlignment="Top" Height="50" FontSize="12" x:Name="Menu">
+            <Menu.Background>
+                <SolidColorBrush Opacity="0.5" Color="Black"> </SolidColorBrush>
+            </Menu.Background>
 
-            <MenuItem x:Name="Button1" Click="Button1_Click" Margin="0"/>
+            <MenuItem x:Name="Button1" Click="Button1_Click" />
             <MenuItem x:Name="Button2" Click="Button2_Click"/>
             <MenuItem x:Name="Button3" Click="Button3_Click"/>
             <MenuItem x:Name="Button4" Click="Button4_Click"/>
             <MenuItem x:Name="Button5" Click="Button5_Click"/>
             <MenuItem x:Name="Button6" Header="Выход" Click="button_Click"/>
+
         </Menu>
         <Grid Margin="33,21,32,30">
         
