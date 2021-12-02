@@ -16,10 +16,21 @@
         <ImageBrush ImageSource="/TENET;component/images/fon3.png" x:Name="im"/>
     </Window.Background>
 
-    <StackPanel>
-        <Menu VerticalAlignment="Top" Height="50" FontSize="12" x:Name="Menu">
+    <Grid>
+        
+
+        <TextBlock Margin="0,0,0,0" >Добро пожаловать</TextBlock>
+        <!--<TextBlock x:Name="TextBlock1" Margin="125,0,0,336"/>
+        <Button x:Name="Button4"  Margin="415,150,15,0" Click="Button4_Click"></Button>
+        <Button x:Name="Button1" Margin="415,0,15,150" Click="Button1_Click" />
+        <Button x:Name="Button2"  Margin="415,0,15,50" Click="Button2_Click"></Button>
+        <Button x:Name="Button3"  Margin="415,50,15,0" Click="Button3_Click"></Button>
+        <Button x:Name="Button5" Margin="415,250,15,0" Click="Button5_Click" />-->
+
+        <!--<Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="55" Margin="0,298,100,0">Выход</Button>-->
+        <Menu VerticalAlignment="Bottom" Height="50" FontSize="12" x:Name="Menu" >
             <Menu.Background>
-                <SolidColorBrush Opacity="0.5" Color="Black"> </SolidColorBrush>
+                <SolidColorBrush Opacity="0.5" Color="Black"></SolidColorBrush>
             </Menu.Background>
 
             <MenuItem x:Name="Button1" Click="Button1_Click" />
@@ -30,18 +41,5 @@
             <MenuItem x:Name="Button6" Header="Выход" Click="button_Click"/>
 
         </Menu>
-        <Grid Margin="33,21,32,30">
-        
-        <TextBlock Margin="0,0,0,0" >Добро пожаловать</TextBlock>
-        <!--<TextBlock x:Name="TextBlock1" Margin="125,0,0,336"/>
-        <Button x:Name="Button4"  Margin="415,150,15,0" Click="Button4_Click"></Button>
-        <Button x:Name="Button1" Margin="415,0,15,150" Click="Button1_Click" />
-        <Button x:Name="Button2"  Margin="415,0,15,50" Click="Button2_Click"></Button>
-        <Button x:Name="Button3"  Margin="415,50,15,0" Click="Button3_Click"></Button>
-        <Button x:Name="Button5" Margin="415,250,15,0" Click="Button5_Click" />-->
-
-        <!--<Button Click="button_Click" x:Name="ButtonBack" Width="150" Height="55" Margin="0,298,100,0">Выход</Button>-->
-
     </Grid>
-    </StackPanel>
 </reactiveUi:ReactiveWindow>
