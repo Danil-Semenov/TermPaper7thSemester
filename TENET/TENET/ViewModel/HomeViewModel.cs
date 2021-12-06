@@ -27,17 +27,16 @@ namespace TENET
             GlobalData.name = PublicDataConnecton.GetUserName(GlobalData.login, GlobalData.password);
             GlobalData.id = Convert.ToInt32(PublicDataConnecton.GetUserId(GlobalData.login, GlobalData.password));
             GlobalData.level = PublicDataConnecton.GetUserLevel(GlobalData.id);
-
             //GlobalData.result = PublicDataConnecton.GetWorkResult(GlobalData.id);
             //GlobalData.ProjectId = PublicDataConnecton.GerProjectId(GlobalData.id);
 
             if (GlobalData.name == "не зарегестрированный пользователь")
-                GlobalData.level = 3;
+                GlobalData.level = 4;
             nameUser = GlobalData.name;
 
            // GlobalData.level = 4;
 
-            if (GlobalData.level == 4)//руководитель 
+            if (GlobalData.level == 3)//руководитель 
             {
                 Vision = false;
                 Button1Vision = true;
@@ -161,7 +160,7 @@ namespace TENET
 
             }
 
-            if (GlobalData.level == 3)
+            if (GlobalData.level == 4)
             {
                 Vision = false;
                 Button1Vision = false;
