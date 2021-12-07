@@ -45,7 +45,7 @@ namespace TENET
 
                 Chat = ReactiveCommand.Create(() =>
                 {
-                    System.Diagnostics.Process.Start(@"C:\Program Files\Git\git-bash.exe");
+                    System.Diagnostics.Process.Start(@"A:\Курсач ПИС\Maps\Maps\bin\Debug\Maps.exe");
                 });
 
             }
